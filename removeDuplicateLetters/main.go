@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	result := removeDuplicateLetters("cbacdcbc")
+	result := removeDuplicateLetters("bcabc")
 
 	fmt.Println(result)
 }
@@ -29,7 +29,7 @@ func removeDuplicateLetters(s string) string {
 		}
 
 		if resulted[s[i]] == false {
-			for len(result) > 0 && result[len(result)-1] > s[i] && freqMap[result[len(result)-1]] > 0 {
+			for len(result) > 0 && result[len(result)-1] < s[i] && freqMap[result[len(result)-1]] > 0 {
 				delete(resulted, result[len(result)-1])
 				result = result[:len(result)-1]
 			}
